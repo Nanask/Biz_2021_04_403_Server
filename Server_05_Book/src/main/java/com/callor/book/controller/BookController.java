@@ -76,9 +76,10 @@ public class BookController extends HttpServlet {
 			String bk_isbn = req.getParameter("bk_isbn");
 			
 			BookDTO bookDTO = bService.findByID(bk_isbn);
+			System.out.println(bookDTO);
 			
 			ServletContext app = this.getServletContext();
-			app.setAttribute("BOOk", bookDTO);
+			app.setAttribute("BOOK", bookDTO);
 			
 			RequestDispatcher disp = app.getRequestDispatcher("/WEB-INF/views/book.jsp");
 			disp.forward(req, resp);
