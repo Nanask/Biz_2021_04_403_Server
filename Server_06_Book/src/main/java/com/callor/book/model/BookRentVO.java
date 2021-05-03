@@ -8,7 +8,7 @@ import lombok.ToString;
 
 // ctrl + shift + y 변수 소문자로 변경하는 키
 
-// Insert와 
+// INSERT와 UPDATE를 수행할때 사용할 데이터 클래스(Type)
 
 
 @Getter

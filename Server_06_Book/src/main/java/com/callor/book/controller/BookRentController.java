@@ -23,7 +23,7 @@ import com.callor.book.service.impl.BookRentServiceImplV1;
  */
 
 @WebServlet("/rent/*")
-public class BookRentController extends HttpServlet {
+public class BookRentController extends HttpServlet  {
 
 	/**
 	 * 
@@ -53,6 +53,7 @@ public class BookRentController extends HttpServlet {
 		}else if(subPath.equals("/seq")) {
 			// 주문번호로 찾기
 			
+			// getParameter는 정수형으로 받을 수 없어서 seq를 문자열로 입력받음
 			String strSeq = req.getParameter("id");
 			Long nSeq = Long.valueOf(strSeq);
 			BookRentDTO brDTO = brService.findById(nSeq);

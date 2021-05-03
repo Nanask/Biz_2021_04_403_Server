@@ -14,6 +14,7 @@ import com.callor.book.service.BookRentService;
 
 public class BookRentServiceImplV1 implements BookRentService{
 	
+	// DB와 연동하기 위해 dbConn 변수를 생성
 	protected Connection dbConn;
 	   public BookRentServiceImplV1() {
 	      dbConn = DBContract.getDBConnection();
@@ -88,7 +89,7 @@ public class BookRentServiceImplV1 implements BookRentService{
 	}
 
 	@Override
-	public BookRentDTO findById(long seq) {
+	public BookRentDTO findById(long seq) { // 매개변수로 받은 long seq값은 Controller에서 받은 String 값을 정수형으로 변환해서 받은 값 "id"
 		// TODO PK로 조회하기
 		
 		
@@ -121,6 +122,7 @@ public class BookRentServiceImplV1 implements BookRentService{
 //			rSet.close();
 			
 			// PK로 조회를 했기 때문에 List에는 1개밖에 데이터가 없다
+			// 배열의 시작값은 0!!
 			// list의 0번 데이터만 getter하여 DTO에 담는다
 			BookRentDTO brDTO = this.select(pStr).get(0);
 			pStr.close();
@@ -206,6 +208,9 @@ public class BookRentServiceImplV1 implements BookRentService{
 	@Override
 	public int insert(BookRentVO bookRentVO) {
 		// TODO Auto-generated method stub
+		
+		// DB에 Insert한 후 DB안에 저장한 컬럼의 PK값을 불러와서 PK값을 다시 return시키기 위함 뇌피셜
+		// 
 		return 0;
 	}
 

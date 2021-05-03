@@ -11,9 +11,12 @@ import java.sql.SQLException;
  *  프로젝트가 Run 되는 순간 미리 객체로 생성되어 준비되는 클래스
  */
 public class DBContract {
+	
+	// DB와 연동하기 위해 dbConn 변수를 생성
 	private static Connection dbConn = null;
 	
 	// static 으로 선언된 dbConn 객체를 초기화하는 코드
+	// 고정된 값으로 있는 것들을 초기화할때 최소한의 메모리로 하기 위함?
 	static {
 		
 		String jdbcDriver = "oracle.jdbc.OracleDriver";
