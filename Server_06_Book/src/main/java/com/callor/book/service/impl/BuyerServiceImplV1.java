@@ -43,6 +43,7 @@ public class BuyerServiceImplV1 implements BuyerService{
 			if(buList != null && buList.size() > 0) {
 				buyerDTO = buList.get(0);
 			}
+			return buyerDTO;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

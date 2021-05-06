@@ -205,10 +205,39 @@ public class BookRentServiceImplV1 implements BookRentService {
 
 	@Override
 	public int insert(BookRentVO bookRentVO) {
-		// TODO Auto-generated method stub
+		// TODO 도서 대여정보 추가
+		
+		String sql = "INSERT INTO tbl_book_rent";
+		sql += " (br_seq, br_sdate, br_isbn, br_bcode, br_price) ";
+		sql += " VALUES(seq_book_rent.NEXTVAL, ? , ? , ? ,? )";
+		
+		PreparedStatement pStr = null;
+		try {
+			
+			//insert에 순서대로 데이터를 넣는 것
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setString(1, bookRentVO.getBr_sdate());
+			pStr.setString(2, bookRentVO.getBr_isbn());
+			pStr.setString(3, bookRentVO.getBr_bcode());
+			pStr.setInt(4, bookRentVO.getBr_price());
+			
+			// insert, update, delete 와 관련된 SQL은 
+			// excuteUpdate() method로 처리한다.
+			// insert 추갘ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+//			pStr.executeUpdate();
+			
+			//정상적으로 SQL이 성공하면 result에는 0보다 큰 값이 담긴다
+			int result = pStr.executeUpdate();
+			// insert, update, delete는 반드시 close를 해야한다.
+			pStr.close();
+			return result;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
-		// DB에 Insert한 후 DB안에 저장한 컬럼의 PK값을 불러와서 PK값을 다시 return시키기 위함 뇌피셜
-		//
 		return 0;
 	}
 
