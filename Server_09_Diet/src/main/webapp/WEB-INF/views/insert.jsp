@@ -77,7 +77,7 @@
 		<%-- datetime-local 은 시간도 입력가능! --%>
 	<p>
 		<label>섭취량</label>
-		<input type="number","mf_eat" value="1">
+		<input type="number","mf_amt" value="1">
 	<p>
 		<button>등록</button>
 	</form>

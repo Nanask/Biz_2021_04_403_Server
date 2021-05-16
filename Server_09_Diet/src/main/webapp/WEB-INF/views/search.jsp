@@ -114,8 +114,8 @@
 	<%-- form의 method를 POST로 지정하면 Controller의 doPost() 함수가 받아서 처리한다.
 	보여지는 search.jsp 파일을 요청한 요청 주소는 /food/search이다
 	
-	form에 action을 임의로 지정하지 않으면 
-	action
+		form에 action을 임의로 지정하지 않으면
+	action="/form/search"가 자동으로 지정된다
 	
 	 --%>
 	<form method ="post">

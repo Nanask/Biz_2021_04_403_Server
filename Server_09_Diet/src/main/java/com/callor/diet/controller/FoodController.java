@@ -74,7 +74,6 @@ public class FoodController extends HttpServlet {
 					
 
 			ReqController.forward(req, resp, "insert");
-			ReqController.forward(req, resp, "insert");
 
 		}
 	}
