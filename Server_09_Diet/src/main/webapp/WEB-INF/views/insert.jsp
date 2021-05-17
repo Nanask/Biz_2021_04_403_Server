@@ -67,17 +67,17 @@
 	<form method="post">
 	<p>
 		<label>식품코드</label>
-		<input name="my_pcode" value="${FOOD.fd_pcode}">
+		<input name="mf_pcode" value="${FOOD.fd_code}">
 	<p>
 		<label>식품이름</label>
-		<input name="my_name" value="${FOOD.fd_name}">
+		<input name="mf_name" value="${FOOD.fd_name}">
 	<p>
 		<label>섭취일자</label>
-		<input type="date" value="${TODAY}">
+		<input name="mf_date"type="date" value="${TODAY}">
 		<%-- datetime-local 은 시간도 입력가능! --%>
 	<p>
 		<label>섭취량</label>
-		<input type="number","mf_amt" value="1">
+		<input name="mf_amt"type="number" value="1">
 	<p>
 		<button>등록</button>
 	</form>

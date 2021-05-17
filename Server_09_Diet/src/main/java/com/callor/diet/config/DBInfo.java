@@ -48,14 +48,15 @@ public class DBInfo {
 			
 		public final static String mf_seq	= "일련번호";
 		public final static String mf_date	= "섭취일자";
-		public final static String mf_pdcode	= "식품코드";
-		public final static String mf_eat	= "섭취량";
+		public final static String mf_pcode	= "식품코드";
+		public final static String mf_amt	= "섭취량";
 
 		
 	}
 	
 	public static class 섭취정보계산 {
 		
+		public static final String mf_seq = "일련번호";
 		public static final String mf_date = "섭취일자";
 		public static final String mf_fcode = "식품코드";
 		public static final String mf_fname = "식품명";

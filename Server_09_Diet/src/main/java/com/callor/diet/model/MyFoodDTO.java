@@ -24,16 +24,17 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MyFoodDTO {
 	
+	private Long mf_seq;
 	private String mf_date; // = 섭취일자";
 	private String mf_pcode; //=식품코드";
 	private String mf_name; //=식품명";
-	private Float mf_amt; //=섭취량";
-	private Float mf_once; //=제공량";
-	private Float mf_capa; //=총내용량";
-	private Float mf_cal; //=에너지";
-	private Float mf_protein; //=단백질";
-	private Float mf_fat; //=지방";
-	private Float mf_carvo; //=탄수화물";
-	private Float mf_sugar; //=총당류";
+	private int mf_amt; //=섭취량";
+	private int mf_one; //=제공량";
+	private int mf_capa; //=총내용량";
+	private int mf_cal; //=에너지";
+	private int mf_protein; //=단백질";
+	private int mf_fat; //=지방";
+	private int mf_carvo; //=탄수화물";
+	private int mf_sugar; //=총당류";
 
 }

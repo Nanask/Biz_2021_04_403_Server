@@ -82,7 +82,7 @@ public class FoodController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
 
 		String subPath = req.getPathInfo();
 
@@ -100,24 +100,24 @@ public class FoodController extends HttpServlet {
 
 			// foodList를 속성에 담는 역할?
 			req.setAttribute("FOODS", foodList);
-			ReqController.forward(req, resp, "search");
+			ReqController.forward(req,resp,"search");
 			
 
 		} else if (subPath.equals("/insert")) {
 			
-	         String strFcode = req.getParameter("my_pcode");
-	         String strDate = req.getParameter("my_date");
-	         String strAmt = req.getParameter("my_amt");
+	         String strFcode = req.getParameter("mf_pcode");
+	         String strDate = req.getParameter("mf_date");
+	         String strAmt = req.getParameter("mf_amt");
 	         
 	         MyFoodVO myFoodVO = new MyFoodVO();
-	         myFoodVO.setMy_pcode(strFcode);
-	         myFoodVO.setMy_date(strDate);
-	         myFoodVO.setMy_amt(Float.valueOf(strAmt));
-	         
-	         int result = mfService.insert(myFoodVO);
+	         myFoodVO.setMf_pcode(strFcode);
+	         myFoodVO.setMf_date(strDate);
+	         myFoodVO.setMf_amt(Integer.valueOf(strAmt));
+	         System.out.println(myFoodVO.toString());
+	         Integer result = mfService.insert(myFoodVO);
 	         if(result > 0) {
 	            System.out.println("추가 성공");
-	            resp.sendRedirect("/diet/");
+	            resp.sendRedirect("/diet/home");
 	         } else {
 	            System.out.println("추가 실패");
 	         }

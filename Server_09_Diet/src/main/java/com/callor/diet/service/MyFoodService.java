@@ -10,7 +10,7 @@ public interface MyFoodService {
 	public List<MyFoodDTO> selectAll();
 	public MyFoodDTO findById(Long seq);
 	public MyFoodDTO findByName(String mf_name);
-	public MyFoodDTO findByDate(String mf_date);
+	public List<MyFoodDTO> findByDate(String mf_date);
 	
 	public Integer insert(MyFoodVO myFoodVO);
 	public Integer update(MyFoodVO myFoodVO);

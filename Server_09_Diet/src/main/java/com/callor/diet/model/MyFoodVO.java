@@ -17,8 +17,8 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MyFoodVO {
 	
-	private Long my_seq;//	number
-	private String my_date;//	varchar2(10 byte)
-	private String my_pcode;//	char(7 byte)
-	private Float my_amt;//	number(10,2)
+	private Long mf_seq;//	number
+	private String mf_date;//	varchar2(10 byte)
+	private String mf_pcode;//	char(7 byte)
+	private Integer mf_amt;//	number(10,2)
 }
