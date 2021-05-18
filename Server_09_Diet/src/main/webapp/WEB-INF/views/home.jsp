@@ -20,7 +20,7 @@ chrome brower의 캐쉬 때문에 css, js 등 외부파일을 변경해도 적�
 	어떠한 파일도 연결을 할 수 없다.
 	
  --%>
-<link href="${rootPath}/css/home.css" rel="stylesheet" type="home/css">
+<link href="/css/home.css" rel="stylesheet" type="home/css">
 </head>
 <body>
 	<h1>다이어트를 도와줘!!</h1>
