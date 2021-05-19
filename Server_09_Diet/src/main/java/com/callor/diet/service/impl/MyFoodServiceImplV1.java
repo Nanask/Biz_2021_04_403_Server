@@ -149,6 +149,9 @@ public class MyFoodServiceImplV1 implements MyFoodService {
 			pStr.setString(1, myFoodVO.getMf_date());
 			pStr.setString(2, myFoodVO.getMf_pcode());
 			pStr.setInt(3, myFoodVO.getMf_amt());
+			
+			// set을 한 값이 넘어오는게 아니라 다른값이 넘어오는데 그게 뭐죠? 그거 알려면 DB에 물어봐야함....................................
+			// insert가 성공하면! 결과값이 0 이상으로 넘어온다? 그렇기 때문에 integer로 받는다.
 			Integer result = pStr.executeUpdate();
 			pStr.close();
 			return result;

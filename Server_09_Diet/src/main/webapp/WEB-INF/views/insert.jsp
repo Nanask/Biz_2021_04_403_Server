@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,10 +60,12 @@
 	/* x-offset y-offset blue spread color */
 		box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
 	}
-
+ 
 </style>
 </head>
 <body>
+<%-- <c:forEach items ="${FOOD}" var="FOOD"> 로 표기 하지 않는 이유는?
+forEach는 반복문이고, 리스트로 넘겨주는 것이 아닌 DTO로 넘겨주기 때문에 굳이 사용할 필요는 없다. --%>
 	<h1>식품섭취 내역 입력</h1>
 	<form method="post">
 	<p>

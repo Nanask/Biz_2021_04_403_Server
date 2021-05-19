@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix='c' %>
-<c:set value="${pageContext.request.contextPath}" 
-		var="rootPath" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set value="${pageContext.request.contextPath}" var="rootPath" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -160,8 +159,9 @@
 						<td>${FOOD.fd_code}</td>
 						
 						<td>
+						<%-- /food/insert?fd_code / fd코드를 get방식으로 보낸다.  --%>
 						<a href="${rootPath}/food/insert?fd_code=${FOOD.fd_code}">
-							${FOOD.fd_name}</td></a>
+							${FOOD.fd_name}</a></td>
 						<td>${FOOD.fd_year}</td>
 						<td>${FOOD.fd_one}</td>
 						<td>${FOOD.fd_capa}</td>

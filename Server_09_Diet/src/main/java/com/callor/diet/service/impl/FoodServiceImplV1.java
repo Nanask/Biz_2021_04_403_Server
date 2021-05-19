@@ -25,16 +25,15 @@ public class FoodServiceImplV1 implements FoodService {
 	// DBMS에 SQL을 보내고 결과를 받아서 List 데이터로 만들어 주는 함수
 	protected List<FoodDTO> select(PreparedStatement pStr) throws SQLException {
 		
+						// sql 준비해놓은 것을 갖고있는 것을 실행해라. = pStr.executeQuery();
 		ResultSet rSet =pStr.executeQuery();
 		
 		List<FoodDTO> foodList = new ArrayList<FoodDTO>();
 		
-		//DBMS에서 받은 데이터가 있으면
+		//DBMS에서 받은 데이터가 있으면 = rSet에 담겨있는 값이 있다면
 		while(rSet.next()) {
 			
 			FoodDTO dto = new FoodDTO();
-			
-			dto.setCp_addr(null);
 			
 			dto.setFd_code	(rSet.getString(DBInfo.FOOD.fd_code));
 			dto.setFd_name	(rSet.getString(DBInfo.FOOD.fd_name));
@@ -76,13 +75,18 @@ public class FoodServiceImplV1 implements FoodService {
 		String sql = "SELECT * FROM view_식품정보";
 		sql += " WHERE 식품코드 = ? ";
 		
+		// sql을 준비하는 인터페이스
 		PreparedStatement pStr = null;
 		
 		try {
 			pStr = dbConn.prepareStatement(sql);
+			
+			// 물음표 위치에 따라 정해주는 것 / 물음표가 1개여서 1번!!!!!!!!!!!~!!!!!!!!
 			pStr.setString(1, fd_code);
 			List<FoodDTO> foodList = this.select(pStr);
 			if(foodList != null && foodList.size() > 0) {
+				
+				// id는 한개의 값만 갖고 있기 때문에 get으로 리턴을 해줬다.
 				return foodList.get(0);
 			}
 		} catch (SQLException e) {

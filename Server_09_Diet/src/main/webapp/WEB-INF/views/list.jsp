@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%-- include 파일로 연결이 되있다? css파일 같은 느낌? --%>
 <table>
 	<tr>
 		<th>섭취일자</th>

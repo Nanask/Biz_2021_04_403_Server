@@ -1,5 +1,7 @@
 package com.callor.diet.config;
 
+// 변수명이 중요하기 때문에 final로 설정해서 실수를 줄이기 위함?
+// 데이터베이스의 칼럼명을 저장하는 것!!!!!!!!!!! 결론은 이거임
 public class DBInfo {
 	
 	public static class FOOD {

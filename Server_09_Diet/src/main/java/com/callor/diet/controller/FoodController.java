@@ -35,7 +35,7 @@ public class FoodController extends HttpServlet {
 		
 	}
 
-	// anchor link를 클릭했을 때 처리할 mehtod
+	// anchor link를 클릭했을 때 처리할 method
 	// a tag : <a href>
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -91,6 +91,7 @@ public class FoodController extends HttpServlet {
 		} else if (subPath.equals("/search")) {
 
 			// form에 입력된 데이터를 추출(파라메터를 get)하고
+			// f_name이라는 변수명은 매개변수임 , 굳이 sql 과 변수명이 같지 않아도 상관없으나 기억하기 쉽게 같게 처리해놓음
 			String f_name = req.getParameter("f_name");
 			// DB에서 조회하여 다시 Web에 보여주기
 			List<FoodDTO> foodList = fdService.findByName(f_name);
@@ -114,9 +115,11 @@ public class FoodController extends HttpServlet {
 	         myFoodVO.setMf_date(strDate);
 	         myFoodVO.setMf_amt(Integer.valueOf(strAmt));
 	         System.out.println(myFoodVO.toString());
-	         Integer result = mfService.insert(myFoodVO);
+	         Integer result = mfService.insert(myFoodVO); 
 	         if(result > 0) {
 	            System.out.println("추가 성공");
+	            
+	            // 원하는 페이지로 돌아갈 수 있게 하는 코드
 	            resp.sendRedirect("/diet/home");
 	         } else {
 	            System.out.println("추가 실패");
