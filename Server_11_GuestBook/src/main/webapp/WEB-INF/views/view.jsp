@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/guest/static/css/home.css?ver2021-05-08" rel="stylesheet"/>
+<link href="/guest/static/css/home.css?ver2021-05-20" rel="stylesheet"/>
 <style>
 		div.view_btn {
 			width:80%;

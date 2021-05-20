@@ -29,7 +29,16 @@ import javax.servlet.annotation.WebFilter;
 // 모든 처리를 통과시키기 위해 /*로 표시!
 // urlPatterns = "/food/*"로 설정하면 
 // localhost:8080/diet/food로 요청하는 부분만 처리
-@WebFilter(urlPatterns = "/*")
+/* 
+ * filter에서 resp.setContentType()을 지정할때 text/html로 지정을 하면 jsp,js, 기타 여러가지 static 파일들이 모두 html ContentType으로 지정되어
+ * WebBrowser로 전송되어 제 기능을 수행하지 못하는 현상이 발생한다.  req는 상관이 없음!
+ * 
+ * 이럴때는 WebFilter urlPatterns를 문자열 배열로 지정하고 각 Controller에 지정된 WebServlet 필터를 나열해 주면
+ * Controller로 요청되는 사항들만 Filtering을 하게 되어 기타 다른 static file들에는 영향을 미치지 않는다.
+ */
+ 
+
+@WebFilter(urlPatterns = {"/","food/*"})
 public class KoreaFilter implements Filter{
 
 	@Override
@@ -44,7 +53,7 @@ public class KoreaFilter implements Filter{
 		 */
 		
 		req.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html;charset=UTF-8");
+//		res.setContentType("text/html;charset=UTF-8");
 		// 또다른 필터가 있다면 연결해서 하라는 의미지만
 		// 꼭 써야 필터가 정상적으로 작동한다.
 		chain.doFilter(req, res);
