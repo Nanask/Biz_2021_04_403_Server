@@ -1,4 +1,4 @@
-package com.callor.controller;
+package com.callor.maven.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;

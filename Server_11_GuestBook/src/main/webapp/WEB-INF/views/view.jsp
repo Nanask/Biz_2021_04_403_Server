@@ -40,6 +40,36 @@
 		}
 </style>
 <script>
+	document.addEventListener("DOMContentLoaded",function(ev) {
+		document.querySelector("div.view_btn")
+		.addEventListener("click", function(ev){
+
+			let className = ev.target.className
+			//alert(target.className)
+			if(className == "btn_home") {
+				
+			}else if(className == "btn_update") {
+				
+				document.location.href = "${rootPath}/guest/update?gb_seq=" + ${GB.gb_seq}
+				
+			}else if(className == "btn_delete") {
+				
+				if(confirm("방명록을 삭제합니다")) {
+					
+					// document.location.href = url 과
+					// document.location.replace(url)
+					
+					// href는 새로운 페이지를 열고 URL에서 보여주는 정보를 보여준다
+					// href는 새로운 페이지에서 뒤로가기를 하면 현재 페이지로 되돌아 올 수 있다.
+					
+					// replace() 현재 페이지에서 URL에서 res 한 정보를 보여준다
+					// replace()는 새로운 페이지에서 뒤로가기를 했을 때 현재 페이지를 볼 수 없다.
+					document.location.replace( "${rootPath}/guest/delete?gb_seq=" + ${GB.gb_seq})
+				}
+			}
+				
+		})
+	})
 	
 </script>
 </head>
@@ -60,9 +90,9 @@
 	</table>
 	
 	<div class="view_btn">
-		<button>처음으로</button>
-		<button>수정하기</button>
-		<button>삭제하기</button>
+		<button class="btn_home">처음으로</button>
+		<button class="btn_update">수정하기</button>
+		<button class="btn_delete">삭제하기</button>
 	
 	
 	</div>
