@@ -25,21 +25,20 @@ public class Homecontroller extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		ReqController.forward(req, resp, "home");
 		
-		String st_name = req.getParameter("st_name");
-		List<SchoolVO> schoolList = null;
+//		String st_name = req.getParameter("st_name");
+		List<SchoolVO> schoolList = scService.selectAll();
 		
-		if(st_name == null || st_name.equals("")) {
-			System.out.println("일치하는 학생정보가 없습니다");
+//		if(st_name == null || st_name.equals("")) {
+//			System.out.println("일치하는 학생정보가 없습니다");
 			
-		}else {
-			schoolList = scService.findByName(st_name);
-		}
+//		}else {
+//			schoolList = scService.findByName(st_name);
+//		}
+		System.out.println(schoolList);
 		req.setAttribute("SCHOOL", schoolList);
-		ReqController.forward(req, resp, st_name);
+		
+		ReqController.forward(req, resp, "home");
 	}
-	
-	
 
 }

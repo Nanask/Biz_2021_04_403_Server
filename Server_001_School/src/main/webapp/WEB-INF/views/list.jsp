@@ -16,8 +16,6 @@
 			<th>학생전화번호</th>
 			<th>학년</th>
 			<th>학과명</th>
-			<th>과목명</th>
-			<th>점수</th>
 		</tr>
 		<c:forEach items="${SCHOOL}" var="SC" >
 			<tr>
@@ -26,8 +24,6 @@
 				<td>${SC.st_tel}</td>
 				<td>${SC.st_grade}</td>
 				<td>${SC.st_dname}</td>
-				<td>${SC.sc_sbname}</td>
-				<td>${SC.sc_score}</td>
 			</tr>	
 		</c:forEach>
 	</table>		

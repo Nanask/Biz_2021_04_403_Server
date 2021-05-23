@@ -23,30 +23,33 @@ public class SchoolServiceImplV1 implements SchoolService{
 	
 	protected List<SchoolVO> select(PreparedStatement pStr) throws SQLException {
 		
-		ResultSet rSet = pStr.executeQuery();
+	
 		List<SchoolVO> schoolList = new ArrayList<SchoolVO>();
+		ResultSet rSet = pStr.executeQuery();
 		
 		while(rSet.next()) {
 			
 			SchoolVO sVO = new SchoolVO();
 			
-			sVO.setSt_num(rSet.getString(DBInfo.student.st_num));
-			sVO.setSt_name(rSet.getString(DBInfo.student.st_name));
-			sVO.setSt_tel(rSet.getString(DBInfo.student.st_tel));
-			sVO.setSt_addr(rSet.getString(DBInfo.student.st_addr));
-			sVO.setSt_grade(rSet.getInt(DBInfo.student.st_grade));
-			sVO.setSt_dpcode(rSet.getString(DBInfo.student.st_dpcode));
-			sVO.setSt_dname(rSet.getString(DBInfo.student.st_dname));
-			sVO.setSt_dpro(rSet.getString(DBInfo.student.st_dpro));
-			sVO.setDp_code(rSet.getString(DBInfo.dept.dp_code));
-			sVO.setDp_name(rSet.getString(DBInfo.dept.dp_name));
-			sVO.setDp_pro(rSet.getString(DBInfo.dept.dp_pro));
-			sVO.setSc_stnum(rSet.getString(DBInfo.score.sc_stnum));
-			sVO.setSc_sbname(rSet.getString(DBInfo.score.sc_sbname));
-			sVO.setSc_score(rSet.getFloat(DBInfo.score.sc_score));
+			sVO.setSt_num(rSet.getString("st_num"));
+			sVO.setSt_name(rSet.getString("st_name"));
+			sVO.setSt_tel(rSet.getString("st_tel"));
+			sVO.setSt_addr(rSet.getString("st_addr"));
+			sVO.setSt_grade(rSet.getInt("st_grade"));
+			sVO.setSt_dpcode(rSet.getString("st_dpcode"));
+			sVO.setSt_dname(rSet.getString("st_dname"));
+			sVO.setSt_dpro(rSet.getString("st_dpro"));
+			sVO.setDp_code(rSet.getString("dp_code"));
+			sVO.setDp_name(rSet.getString("dp_name"));
+			sVO.setDp_pro(rSet.getString("dp_pro"));
+			sVO.setSc_stnum(rSet.getString("sc_stnum"));
+			sVO.setSc_sbname(rSet.getString("sc_sbname"));
+			sVO.setSc_score(rSet.getFloat("sc_score"));
 			
 			schoolList.add(sVO);
+			
 		}
+		System.out.println(schoolList.toString());
 		return schoolList;
 	}
 	
@@ -55,8 +58,18 @@ public class SchoolServiceImplV1 implements SchoolService{
 	public List<SchoolVO> selectAll() {
 		// TODO 전체조회
 		
+		String sql = " SELECT * FROM tbl_student ";
+		PreparedStatement pStr = null;
 		
-		
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			List<SchoolVO> schoolList = this.select(pStr);
+			pStr.close();
+			return schoolList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return null;
 	}
@@ -65,7 +78,7 @@ public class SchoolServiceImplV1 implements SchoolService{
 	public SchoolVO findById(String st_num) {
 		// TODO 학번으로 검색하기
 		String sql = " SELECT * FROM tbl_student ";
-		sql += " WHERE 학번 = ? ";
+		sql += " WHERE st_num = ? ";
 		
 		PreparedStatement pStr = null;
 		
@@ -89,7 +102,7 @@ public class SchoolServiceImplV1 implements SchoolService{
 		// TODO 이름으로 정보 찾기
 		
 		String sql = " SELECT * FROM tbl_student ";
-		sql += " WHERE 이름 LIKE '%' || ? || '%' ";
+		sql += " WHERE st_name LIKE '%' || ? || '%' ";
 		
 		PreparedStatement pStr = null;
 		

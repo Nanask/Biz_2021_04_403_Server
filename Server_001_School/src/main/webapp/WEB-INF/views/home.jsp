@@ -16,7 +16,7 @@
 	<%-- 문단나누는 것 div --%>
 	<div>
 	<form>
-	<input name="st_num">
+	<input name="st_name">
 	<button>입력</button>
 	</form>
 	</div>
