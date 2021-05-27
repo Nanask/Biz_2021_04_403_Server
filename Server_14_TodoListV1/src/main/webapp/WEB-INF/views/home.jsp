@@ -166,9 +166,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 				location.href="${rootPath}/sub/expire?seq=" + seq
 			}		
 		}
-		
-		
-		
 	})
 })
 	
@@ -194,6 +191,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 	우리 프로젝트는 모두 절대주소 지정방식으로 통일하고 항상 주소(URI,URL)과 관련된 모든 항목은
 	${rootPath}로 시작하는 주소로 사용한다.
 	rootPath = http://localhost:8080/todo
+	
+	<input name="td_doit" 에 name을 지정해서 post로 받아온다?
 	 --%>
 		<form class="doit" method="POST" action="${rootPath}/sub/insert">
 			<input name="td_doit" placeholder="할일을 입력한 후 Enter">

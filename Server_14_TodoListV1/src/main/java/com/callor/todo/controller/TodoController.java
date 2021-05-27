@@ -48,7 +48,7 @@ public class TodoController extends HttpServlet {
 			String edate = sd.format(date);
 			String etime = st.format(date);
 			
-			// 완료날짜가 없다면 완료날짜를 지금날짜로 체크해서 넘겨라?
+			// 완료날짜가 없다면 완료날짜를 지금날짜로 세팅해라
 			tdVO.put(DBInfo.td_edate, edate);
 			tdVO.put(DBInfo.td_etime, etime);
 			
@@ -74,7 +74,7 @@ public class TodoController extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		
-		String td_doit = req.getParameter(DBInfo.td_doit);
+		String td_doit = req.getParameter("td_doit");
 		
 		Map<String,Object> tdVO = new HashMap<String,Object>();
 		
@@ -84,10 +84,6 @@ public class TodoController extends HttpServlet {
 		// 처음화면으로 이동하라
 		resp.sendRedirect(req.getContextPath());
 		
-		
-		
 	}
-	
-	
 
 }
