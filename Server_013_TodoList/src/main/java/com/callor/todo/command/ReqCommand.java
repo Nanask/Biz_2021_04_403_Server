@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ReqCommend {
+public class ReqCommand {
 
 	private static final String prefix = "/WEB-INF/views/";
 	private static final String surfix = ".jsp";
